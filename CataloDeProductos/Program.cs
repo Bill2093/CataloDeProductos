@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using CataloDeProductos.Data;
 
 namespace CataloDeProductos
 {
@@ -6,6 +8,8 @@ namespace CataloDeProductos
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("ProductsDb"));
 
             // Add services to the container.
 
